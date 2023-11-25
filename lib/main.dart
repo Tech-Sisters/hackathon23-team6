@@ -1,15 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:zakat_calculator/pages/Calculator.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HomeScreen(),
+    );
+  }
+}
+
+
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     String hexColor = "#2E86AB";
+    String hexColor1 = "#85C1E9";
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -20,22 +37,48 @@ class MyApp extends StatelessWidget {
             children: [
               Text(
             "Zakat Calculator",
+            textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 32,
+              fontSize: 56,
               fontWeight: FontWeight.bold,
               color: Colors.white,
             ),
           ),
+          SizedBox(height: 56),
+          ElevatedButton(
+            onPressed: () {
+             Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>
+              CalculatorPage()),
+            );
+            },
+            style: ElevatedButton.styleFrom(
+              backgroundColor: HexColor(hexColor1),
+              padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18),
+              )
+            ),
+          child: Text("Calculate your zakat",
+          style: TextStyle(
+            fontSize: 20,
+          ),)),
           SizedBox(height: 20),
           ElevatedButton(onPressed: () {
             print("button pressed");
             }, 
-          child: Text("Calculate your zakat")),
-          SizedBox(height: 20),
-          ElevatedButton(onPressed: () {
-            print("button pressed");
-            }, 
-          child: Text("All About Zakat"))
+            style: ElevatedButton.styleFrom(
+              backgroundColor: HexColor(hexColor1),
+              padding: EdgeInsets.symmetric(horizontal: 48, vertical: 20),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(18),
+              )
+            ),
+          child: Text("All About Zakat",
+          style: TextStyle(
+            fontSize: 20,
+          ),))
           ],
           ),
           ),
