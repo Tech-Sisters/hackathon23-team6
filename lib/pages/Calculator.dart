@@ -6,10 +6,11 @@ class CalculatorPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String hexColor = "#2E86AB";
-     String hexColor1 = "#85C1E9";
+    String hexColor1 = "#85C1E9";
     return Scaffold(
+      resizeToAvoidBottomInset : false,
       backgroundColor: HexColor(hexColor),
-      body: Center(
+      body: SingleChildScrollView(
         child : Column(
           children: [
             SizedBox(height: 30),
@@ -96,7 +97,10 @@ class CalculatorPage extends StatelessWidget {
               decoration: InputDecoration(
                 filled: true,
                 fillColor: Colors.white,
-                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10),
+                borderSide: BorderSide(
+                  color: Colors.white
+                )),
                 contentPadding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 
                 
@@ -116,7 +120,7 @@ class CalculatorPage extends StatelessWidget {
             ),
              child: Text("Calculate",
              style: TextStyle(
-              fontSize: 18,
+              fontSize: 20,
              ),)),
 
           ],

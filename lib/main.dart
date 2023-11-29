@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zakat_calculator/pages/Calculator.dart';
+import 'package:zakat_calculator/pages/Info.dart';
 
 void main() {
   runApp(const MyApp());
@@ -66,7 +67,11 @@ class HomeScreen extends StatelessWidget {
           ),)),
           SizedBox(height: 20),
           ElevatedButton(onPressed: () {
-            print("button pressed");
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) =>
+              InfoPage()),
+            );
             }, 
             style: ElevatedButton.styleFrom(
               backgroundColor: HexColor(hexColor1),
